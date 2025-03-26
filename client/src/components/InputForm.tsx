@@ -1,4 +1,4 @@
-"use client"; // Required because it's a client component
+"use client"; // Required for client-side components
 
 import { useState } from "react";
 
@@ -8,14 +8,18 @@ export default function InputForm() {
 
     const handleSubmit = async () => {
         try {
-            const res = await fetch("/api/generate", {
+            const res = await fetch("/api/generate", {  // Fixed fetch URL
                 method: "POST",
                 headers: { "Content-Type": "application/json" },
-                body: JSON.stringify({ input: inputValue }),
+                body: JSON.stringify({ prompt: inputValue }),  // Updated key name
             });
 
+            if (!res.ok) {
+                throw new Error("Failed to fetch response.");
+            }
+
             const data = await res.json();
-            setResponse(data.message || "Response received!");
+            setResponse(data.generated_text );
         } catch (error) {
             console.error("Error:", error);
             setResponse("Failed to fetch response.");
@@ -23,22 +27,23 @@ export default function InputForm() {
     };
 
     return (
-        <div className="flex justify-between p-4 border rounded-lg shadow-md">
+        <div className="flex flex-col gap-2 p-4 border rounded-lg shadow-md w-96">
             <input
                 type="text"
                 value={inputValue}
                 onChange={(e) => setInputValue(e.target.value)}
-                placeholder="Enter something..."
+                placeholder="Enter a prompt..."
                 className="border p-2 rounded-md w-full"
             />
            
             <button
                 onClick={handleSubmit}
-                className="mt-2 bg-gray-500 hover:white text-white px-4 py-2 rounded-md"
+                className="bg-blue-500 hover:bg-blue-600 text-white px-4 py-2 rounded-md transition"
             >
                 Submit
             </button>
-            {response && <p className="mt-2 text-green-600">{response}</p>}
+
+            {response && <p className="text-green-600">{response}</p>}
         </div>
     );
 }
