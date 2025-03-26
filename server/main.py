@@ -3,7 +3,18 @@ from pydantic import BaseModel
 from model import generate_text
 import uvicorn
 
+
 app = FastAPI()
+
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=["*"],
+    allow_credentials=True,
+    allow_methoss=["POST"],
+    allow_headers=[""],
+)
+
+app.include_router(generate.router)
 
 # Request body model
 class TextRequest(BaseModel):
