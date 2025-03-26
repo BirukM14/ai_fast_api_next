@@ -23,7 +23,7 @@ export default function InputForm() {
     };
 
     return (
-        <div className="p-4 border rounded-lg shadow-md">
+        <div className="flex justify-between p-4 border rounded-lg shadow-md">
             <input
                 type="text"
                 value={inputValue}
@@ -31,9 +31,10 @@ export default function InputForm() {
                 placeholder="Enter something..."
                 className="border p-2 rounded-md w-full"
             />
+           
             <button
                 onClick={handleSubmit}
-                className="mt-2 bg-blue-500 text-white px-4 py-2 rounded-md"
+                className="mt-2 bg-gray-500 hover:white text-white px-4 py-2 rounded-md"
             >
                 Submit
             </button>
