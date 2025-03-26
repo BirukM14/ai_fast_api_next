@@ -10,7 +10,7 @@ class TextRequest(BaseModel):
     prompt: str
 
 # Root route
-@app.get("/bura")
+@app.get("/")
 def read_root():
     return {"message": "Welcome to the AI Content Generator API!"}
 
