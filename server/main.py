@@ -9,6 +9,7 @@ from models.request_model import TextRequest
 
 app = FastAPI()
 
+
 # Enable CORS for frontend requests
 app.add_middleware(
     CORSMiddleware,
