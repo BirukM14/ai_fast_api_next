@@ -1,2 +1,61 @@
-server/.env
-/.env
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Virtual environment
+venv/
+.env/
+*.env
+
+# VS Code settings
+.vscode/
+
+# Python cache
+*.pyc
+*.pyo
+*.pyd
+__pycache__/
+
+# Logs and databases
+*.log
+*.sqlite3
+db.sqlite3
+
+# Pip dependency files
+pip-log.txt
+pip-delete-this-directory.txt
+
+# Pytest cache
+.pytest_cache/
+
+# Coverage reports
+htmlcov/
+.coverage
+*.cover
+
+# Mypy
+.mypy_cache/
+
+# Jupyter Notebook checkpoints
+.ipynb_checkpoints
+
+# Docker
+docker-compose.override.yml
+.dockerignore
+
+# Editor files
+*.swp
+*~
+.DS_Store
+
+# Dependency directories
+dist/
+build/
+site/
+
+# Node.js (if using frontend or npm in project)
+node_modules/
+
+# FastAPI-specific files
+instance/
