@@ -14,9 +14,7 @@ export default function InputForm() {
                 body: JSON.stringify({ prompt: inputValue }),  // Updated key name
             });
 
-            if (!res.ok) {
-                throw new Error("Failed to fetch response.");
-            }
+            
 
             const data = await res.json();
             setResponse(data.generated_text );
