@@ -10,10 +10,12 @@ from models.request_model import TextRequest
 app = FastAPI()
 
 
+
+
 # Enable CORS for frontend requests
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["http://localhost:3000"],  # Replace with ["http://localhost:3000"] for security
+    allow_origins=["*"],  # Replace with ["http://localhost:3000"] for security
     allow_credentials=True,
     allow_methods=["POST"],  # Fixed typo
     allow_headers=["*"],  # Fixed empty list
